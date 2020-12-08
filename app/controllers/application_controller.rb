@@ -6,6 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
+    register Sinatra::Flash
     set :session_secret, "our_awesome_dream_space_app"
     #if someone doesnt have the sesssion scret and tries 
     # to imitate you they wont be able to.
