@@ -30,17 +30,20 @@ class ApplicationController < Sinatra::Base
 
     end
 
+
     def current_user
-      @current_user ||= User.find_by(id: session[:user_id] if session[:user_id])
+      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
       #is @current_user is referenced anywhere in the application
       #controller it will represent the current_user and if
       # current_user has no value/nil it will assign the user 
       #to the variable
     end
 
+
     def authorized_to_edit?(dream_post)
       dream_post.user == current_user
     end
+
   end
 
 end
