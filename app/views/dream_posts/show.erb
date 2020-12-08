@@ -1,4 +1,6 @@
-SHOW PAGE FOR A DREAM POST
+        <!-- SHOW PAGE FOR A DREAM POST-->
+
+
 <h2><%= @dream_post.user.name %>'s Dream Post</h2>
 <br>
 <br>
@@ -14,12 +16,14 @@ SHOW PAGE FOR A DREAM POST
     <br>
     <br>
 
+
 <!-- Delete Link -->
     <form class="" action="/dream_posts/<%= @dream_post.id %>" method="post">
+
 
 <!-- How do I turn this form submission into a DELETE request??/ -->
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" name="" value="Delete">
-</form>
+    </form>
 <% end %>    
 
