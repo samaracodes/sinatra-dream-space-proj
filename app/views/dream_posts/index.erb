@@ -2,13 +2,23 @@
 <hr class="rounded">
 <br>
 
-
+<center><img src="https://cdn.shopify.com/s/files/1/0066/0471/8193/products/Mini_dream_journal_shopify3_1024x1024.jpg?v=1591955470" 
+alt="Journal" width="600" height="300"></center>
+<br>
+<hr class="rounded">
 <h3 style="color:green;">Homepage</h3>
+<br>
 
 
+
+
+
+
+<br>
 <% @dream_posts.each do |dream_post| %>
-    <h5>@<%= dream_post.user.name %></h5>
+    <h5>@<%= dream_post.user_id.%></h5>
+    <br>
     <p><%= dream_post.content %></p>
     <h6><a href="/dream_posts/<%= dream_post.id %>"><%= dream_post.created_at %></a></h6>
     <hr class="dotted">
-<% end %> 
+<% end %>
