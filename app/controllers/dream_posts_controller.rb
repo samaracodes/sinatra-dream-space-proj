@@ -33,6 +33,7 @@ class DreamPostsController < ApplicationController
             @dream_post = DreamPost.create(content: params[:content], user_id: current_user.id)
             redirect "/dream_posts/#{@dream_post.id}"
         else
+            flash[:message] = "Something went wrong."
             redirect '/dream_posts/new'
         end
     end
@@ -44,6 +45,8 @@ class DreamPostsController < ApplicationController
         @dream_post = DreamPost.find(params[:id])
         erb :'/dream_posts/show'
     end
+
+
 
     get '/dream_posts/:id/edit' do
             #this route should send us to dream_posts/edit.erb
@@ -80,6 +83,8 @@ class DreamPostsController < ApplicationController
     end
 
 
+
+
         #delete a post 
     delete '/dream_posts/:id' do
         set_dream_post
@@ -100,9 +105,9 @@ class DreamPostsController < ApplicationController
 
     # index route for all dream posts
     private
-
     def set_dream_post
-
         @dream_post = DreamPost.find(params[:id])
     end
+
+
 end
