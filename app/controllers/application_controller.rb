@@ -36,6 +36,10 @@ class ApplicationController < Sinatra::Base
       # current_user has no value/nil it will assign the user 
       #to the variable
     end
+
+    def authorized_to_edit?(dream_post)
+      dream_post.user == current_user
+    end
   end
 
 end
