@@ -14,11 +14,14 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="nav">
+  <div class="nav">
+    <% if logged_in? %> 
       <a href="/dream_posts/new">New Dream Post</a>
       <a href="/dream_posts">All Dream Posts</a>
+     
       <a href="/logout">Log Out</a>
-    </div>
+    <% end %>
+  </div>
     <div class="wrapper">
 
         <%= yield %>
