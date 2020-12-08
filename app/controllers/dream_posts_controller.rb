@@ -1,6 +1,16 @@
 class DreamPostsController < ApplicationController
     
-    
+    # index route for all dream posts
+    get '/dream_posts' do
+        @dream_posts = DreamPost.all
+            #local variables(without @) are block scope variables
+            #instance variables are scroped to the instance 
+            #of the class it's written in
+        erb :'/dream_posts/index'
+    end
+
+
+
     # get dream_posts/new to render a form to create a new 
     # entry
     get '/dream_posts/new' do
