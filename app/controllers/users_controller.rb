@@ -15,8 +15,10 @@ class UsersController < ApplicationController
         @user = User.find_by(email: params[:email])
             #Authenticaste the user - verify the user is who they say they are
             # they have the credentials - email/password combo
+        
         if @user && @user.authenticate(params[:password])
              # log the user in - create the user session
+            
             session[:user_id] = @user.id #this is what is actually logging the user in
                 # redirect to the user's landing page(show page)
             puts session
@@ -29,11 +31,15 @@ class UsersController < ApplicationController
         end
     end
 
+
+
         # this route's job is to render the signup form
     get '/signup' do
             #erb (render) a view
         erb :signup
     end
+
+
 
     post '/signup' do
         # here is where we will create a new user
@@ -50,9 +56,11 @@ class UsersController < ApplicationController
             @user = User.create(params)
             session[:user_id] = @user.id #actually logging the user in
             # where do I go now?
+            flash[:message] = "You have successfully created an account."
             redirect to "/users/#{@user.id}"
         else
                 # not valid input
+            flash[:errors] = "Invalid credentials. Please try again."
             redirect to '/signup'
                 #it would be ideal to display a message
         end
