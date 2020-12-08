@@ -15,16 +15,23 @@
   </head>
   <body>
   <div class="nav">
+  <div class="nav">
     <% if logged_in? %> 
+      <a href="/dream_posts">HOME</a>
       <a href="/dream_posts/new">New Dream Post</a>
-      <a href="/dream_posts">All Dream Posts</a>
-     
       <a href="/logout">Log Out</a>
     <% end %>
   </div>
     <div class="wrapper">
 
         <%= yield %>
+
+        <% if flash[:message] %>
+          <h5 style="color:blue;"><%= flash[:message] %></h5>
+        <% end %>
+        <% if flash[:errors] %>
+          <h5 style="color:red;"><%= flash[:message] %></h5>
+        <% end %>
 
       <footer class="branding">
         <small>&copy; 2020 <strong>SinatraDreamSpaceProj</strong></small>
