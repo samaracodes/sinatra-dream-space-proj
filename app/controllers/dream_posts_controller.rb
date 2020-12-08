@@ -74,7 +74,7 @@ class DreamPostsController < ApplicationController
                 redirect "/users/#{current_user.id}"
             end
         else
-        redirect '/'
+            redirect '/'
         end
     end
 
