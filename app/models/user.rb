@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
     validates :name, presence: true
     validates :email, presence: true
     validates :email, uniqueness: true
-    #making sure these prevent saving or creating anything in the database
-    #if the conditions are not met. 
 
 
     has_many :dream_posts
