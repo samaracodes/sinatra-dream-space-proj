@@ -65,7 +65,7 @@ class DreamPostsController < ApplicationController
             # 1) Find the dream post
         set_dream_post
         if logged_in?
-            if @dream_post.user == current_user
+            if @dream_post.user == current_user && params[:content] != ""
                     # 2) Modify the dream post
                 @dream_post.update({content: params[:content]})
                     # 3) Redirect to the show page  
@@ -77,6 +77,25 @@ class DreamPostsController < ApplicationController
             redirect '/'
         end
     end
+
+
+        #delete a post 
+    delete '/dream_posts/:id' do
+        set_dream_post
+        if authorized_to_edit?(@dream_post)
+                #delete the post
+            @dream_post.destroy
+                #go somewhere
+                #we're redirecting instead of rendering bc of separation of concerns
+                #each action only has one job. Delete, Patch, and Post request actions
+                #generally end in redirects. Get requests end in renders. 
+            redirect '/dream_posts'
+        else
+                #go somewhere else-- not deleted
+            redirect '/dream_posts'
+        end
+    end
+
 
     # index route for all dream posts
     private
