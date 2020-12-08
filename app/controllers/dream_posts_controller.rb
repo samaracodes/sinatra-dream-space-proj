@@ -1,34 +1,24 @@
 class DreamPostsController < ApplicationController
     
-    # index route for all dream posts
+    
     get '/dream_posts' do
         @dream_posts = DreamPost.all
-            #local variables(without @) are block scope variables
-            #instance variables are scroped to the instance 
-            #of the class it's written in
+    
         erb :'/dream_posts/index'
     end
 
 
-
-    # get dream_posts/new to render a form to create a new 
-    # entry
     get '/dream_posts/new' do
        erb :'/dream_posts/new'
     end
 
 
-
-        # post dream_posts to create a new dream post
     post "/dream_posts" do
-            # we want to create a new dream post and save it to the DB. 
-            # I also only want to create a dream post if a user is logged in. 
         if !logged_in?
             redirect '/'
         end
-            # I only want to save the post if it has some content. 
+
         if params[:content] != ""
-                #create a new post & show successful message
             flash[:message] = "Dream post successfully created."
             @dream_post = DreamPost.create(content: params[:content], user_id: current_user.id)
             redirect "/dream_posts/#{@dream_post.id}"
@@ -39,8 +29,6 @@ class DreamPostsController < ApplicationController
     end
 
 
-
-        # show route for a dream posts
     get '/dream_posts/:id' do
         @dream_post = DreamPost.find(params[:id])
         erb :'/dream_posts/show'
@@ -49,8 +37,6 @@ class DreamPostsController < ApplicationController
 
 
     get '/dream_posts/:id/edit' do
-            #this route should send us to dream_posts/edit.erb
-            # which will render an edit form
         set_dream_post
         if logged_in?
             if @dream_post.user == current_user
@@ -65,14 +51,11 @@ class DreamPostsController < ApplicationController
 
 
     patch "/dream_posts/:id" do 
-            #This action's job is to :
-            # 1) Find the dream post
         set_dream_post
+
         if logged_in?
             if @dream_post.user == current_user && params[:content] != ""
-                    # 2) Modify the dream post
                 @dream_post.update({content: params[:content]})
-                    # 3) Redirect to the show page  
                 redirect "/dream_posts/#{@dream_post.id}"
             else
                 redirect "/users/#{current_user.id}"
@@ -85,25 +68,16 @@ class DreamPostsController < ApplicationController
 
 
 
-        #delete a post 
     delete '/dream_posts/:id' do
         set_dream_post
         if authorized_to_edit?(@dream_post)
-                #delete the post
             @dream_post.destroy
-                #go somewhere
-                #we're redirecting instead of rendering bc of separation of concerns
-                #each action only has one job. Delete, Patch, and Post request actions
-                #generally end in redirects. Get requests end in renders. 
             redirect '/dream_posts'
         else
-                #go somewhere else-- not deleted
             redirect '/dream_posts'
         end
     end
 
-
-    # index route for all dream posts
     private
     def set_dream_post
         @dream_post = DreamPost.find(params[:id])
