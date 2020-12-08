@@ -1,9 +1,20 @@
-<center><h2>Welcome to Dream Space, <%= @user.name %>!</h2></center>
 
-<h3>Profile</h3>
-<p>---------------------</p>
-<p> <%= @user.name %></p>
+<center>
+    <h2>Welcome to Dream Space, <%= @user.name %>!</h2>
+</center>
 
-<h3>Email: </h3>
-<p> <%= @user.email %></p>
+<h5>Profile</h5>
+
+    <img src="https://iconsetc.com/icons-watermarks/flat-square-white-on-pink/bfa/bfa_user/bfa_user_flat-square-white-on-pink_512x512.png"
+    alt="user icon" width="100px" height="100px" class="circle responsive-img">
+
+    <h6>
+        <b> <%= @user.name %></b>
+    </h6>
+    <br>
+
+    <h6>
+        <b>Email: </b>
+    </h6>
+    <p> <%= @user.email %></p>
 
