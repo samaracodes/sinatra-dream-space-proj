@@ -30,11 +30,12 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      @current_user ||= User.find_by(session[:user_id])
+      @current_user ||= User.find_by(id: session[:user_id])
       #is @current_user is referenced anywhere in the application
       #controller it will represent the current_user and if
       # current_user has no value/nil it will assign the user 
       #to the variable
     end
+  end
 
 end
