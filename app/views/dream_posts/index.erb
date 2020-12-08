@@ -6,19 +6,23 @@
 alt="Journal" width="600" height="300"></center>
 <br>
 <hr class="rounded">
-<h3 style="color:green;">Homepage</h3>
+<h3 class="pink-text accent-2">Timeline</h3>
 <br>
 
 
 
-
-
-
 <br>
-<% @dream_posts.each do |dream_post| %>
-    <h5>@<%= dream_post.user.name%></h5>
-    <br>
-    <p><%= dream_post.content %></p>
-    <h6><a href="/dream_posts/<%= dream_post.id %>"><%= dream_post.created_at %></a></h6>
-    <hr class="dotted">
-<% end %>
+
+<div class="row">
+    <% @dream_posts.each do |dream_post| %>
+        <div class="col s12 m6">
+            <div class="card grey darken-4">
+                <div class="card-content white-text">
+                    <span class="card-title pink-text lighten-2">@<%= dream_post.user.name%></span>
+                    <p><%= dream_post.content %></p>
+                    <h6><a href="/dream_posts/<%= dream_post.id %>"><%= dream_post.created_at %></a></h6>
+                </div>
+            </div>
+        </div>
+    <% end %>
+  </div>
