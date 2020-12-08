@@ -26,9 +26,10 @@ class DreamPostsController < ApplicationController
         if !logged_in?
             redirect '/'
         end
-        # I only want to save the post if it has some content. 
+            # I only want to save the post if it has some content. 
         if params[:content] != ""
-                #create a new post
+                #create a new post & show successful message
+            flash[:message] = "Dream post successfully created."
             @dream_post = DreamPost.create(content: params[:content], user_id: current_user.id)
             redirect "/dream_posts/#{@dream_post.id}"
         else
