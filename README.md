@@ -3,6 +3,12 @@ DreamSpace is an application used to track and share recollections of a dream as
 ---------------------------------------------------------------------
 
 
+How to run this app:
+--------------------
+1. Open a terminal & run "shotgun"
+2. Copy the link where the server is running, and paste it into your browser to see our application in action.
+
+
 As a user I can:
 -----------------
 * Sign up, sign in, and sign out of Dream Space.
@@ -12,6 +18,7 @@ As a user I can:
 * Delete your dreams
 
 ------------------------------------------------
+
 LICENSE
 Copyright <2020> <COPYRIGHT samara-amanda>
 
