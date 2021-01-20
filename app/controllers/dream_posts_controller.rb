@@ -83,7 +83,7 @@ class DreamPostsController < ApplicationController
     def set_dream_post
         @dream_post = DreamPost.find(params[:id])
     end
-    #sets the post params
+    
 
 
 end
