@@ -1,5 +1,5 @@
 require './config/environment'
-
+#this is the correct project file 
 class ApplicationController < Sinatra::Base
 
   configure do
