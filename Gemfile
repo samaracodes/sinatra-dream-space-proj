@@ -11,10 +11,13 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-flash'
-gem 'bigdecimal', '1.4.2'
 
-group :production do
-  gem 'pg'
+group :development, :production do
+  gem 'pg', '0.15.1'
+end
+
+group :test do
+  gem 'sqlite3', '1.4.2'
 end
 
 group :test do
