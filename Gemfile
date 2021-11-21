@@ -12,14 +12,7 @@ gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-flash'
 gem 'bigdecimal', '1.4.2'
-
-group :development, :test do
-  gem 'sqlite3'
-end
-
-group :production do
-   gem 'pg'
-end
+gem 'pg'
 
 group :test do
   gem 'rspec'
