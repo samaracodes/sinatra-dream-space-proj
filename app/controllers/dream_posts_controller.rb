@@ -84,6 +84,7 @@ class DreamPostsController < ApplicationController
         @dream_post = DreamPost.find(params[:id])
     end
     
+    
 
 
 end
