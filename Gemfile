@@ -12,7 +12,6 @@ gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-flash'
 gem 'bigdecimal', '1.4.2'
-gem 'sqlite3', '~> 1.3.11'
 
 group :production do
   gem 'pg'
