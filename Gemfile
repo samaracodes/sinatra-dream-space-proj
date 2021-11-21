@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'sinatra'
-gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
+gem 'activerecord'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
 gem 'require_all'
@@ -12,6 +12,7 @@ gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-flash'
 gem 'bigdecimal', '1.4.2'
+gem 'sqlite3', '~> 1.3.11'
 
 group :production do
   gem 'pg'
