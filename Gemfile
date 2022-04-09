@@ -13,12 +13,17 @@ gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-flash'
 
-group :development, :production do
+group :development do
+  gem 'sqlite3'
+  gem "tux"
+end
+ 
+group :production do
   gem 'pg'
 end
 
 group :test do
-  gem 'sqlite3', '1.4.2'
+  gem 'sqlite3'
 end
 
 group :test do
