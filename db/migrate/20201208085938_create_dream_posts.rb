@@ -1,4 +1,4 @@
-class CreateDreamPosts < ActiveRecord::Migration
+class CreateDreamPosts < ActiveRecord::Migration[7.0]
   def change
     create_table :dream_posts do |t|
       t.string :content
