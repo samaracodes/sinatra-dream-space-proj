@@ -1,29 +1,43 @@
-
-DreamSpace is an application used to track and share recollections of a dream as soon as you wake up. Helping you retain details and allow you to process it. Dream on, dreamer.
----------------------------------------------------------------------
-
-
-How to run this app:
---------------------
-1. Open a terminal & run "shotgun"
-2. Copy the link where the server is running, and paste it into your browser to see our application in action.
+<h1>Dreamspace</h1>
+<p>DreamSpace is an application used to track and share recollections of a dream as soon as you wake up. Helping you retain details and allow you to process it. Dream on, dreamer.
 
 
-As a user I can:
------------------
-* Sign up, sign in, and sign out of Dream Space.
-* Create a dream post
-* See all your dreams
-* Edit your dreams
-* Delete your dreams
+<h2>How to run this app:</h2>
+<ul>
+    <li>1. Clone this repo
+    <li>2. Open a terminal & run "shotgun"
+    <li>3. Open localhost:3000 into your browser to see our application in action.
+</ul>
+
+
+<h2>As a user I can:</h2>
+<ul>
+    <li> Sign up, sign in, and sign out of Dream Space.
+    <li> Create a dream post
+    <li> See all your dreams
+    <li> Edit your dreams
+    <li> Delete your dreams
+</ul>
 
 ------------------------------------------------
-
-LICENSE
-Copyright <2020> <COPYRIGHT samara-amanda>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+<h2>A MVC sinatra application that uses:</h2>
+<ul>
+    <li> Sqlite database
+    <li> ActiveRecord
+    <li> RESTful routes
+    <l1> Sessions
+    <li> Signup/Login/Logout 
+    <li> ORM - Object Relational Mapping between Models
+        - belongs_to
+        - has_many
+    <l1> CRUD functionality on belongs_to instances of a user:
+        - Create
+        - Read
+        - Update
+        - Delete
+    <li> Helper methods to protect the views of the current_user. Only the logged_in user should be allowed to create, read, update, and delete their own gigs
+    <li> Validations
+        - uniqueness of a user's login attributes
+        - input to protect from bad data being persisted into the database
+    <li> Flash messages to display validation failures with error messages, and flash success messages to validate successful signup, logout, as well as successful creation and update of a gig. 
+</ul>
