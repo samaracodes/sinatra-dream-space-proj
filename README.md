@@ -5,8 +5,10 @@
 <h2>How to run this app:</h2>
 <ul>
     <li>1. Clone this repo
-    <li>2. Open a terminal & run "shotgun"
-    <li>3. Open localhost:3000 into your browser to see our application in action.
+    <li>2. run 'bundle install' in your terminal
+    <li>3. run 'rake db:migrate' in your terminal
+    <li>3. run "rackup" in your terminal
+    <li>4. Open localhost:9292 into your browser to see our application in action.
 </ul>
 
 
