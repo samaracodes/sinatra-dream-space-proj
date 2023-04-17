@@ -17,6 +17,7 @@ gem 'rails'
 gem 'psych', '< 4'
 gem 'sqlite3'
 gem 'rspec-rails'
+gem 'sidekiq'
 
 
 group :test do
