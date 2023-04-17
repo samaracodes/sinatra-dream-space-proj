@@ -1,0 +1,20 @@
+databases:
+  - name: sinatra-dream-space-db
+    databaseName: sinatra-dream-space
+    user: sinatra-dream-space
+    plan: starter
+
+services:
+  - type: web
+    name: sinatra-dream-space
+    plan: free
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sinatra-dream-space
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
