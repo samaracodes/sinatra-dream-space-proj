@@ -1,5 +1,5 @@
 databases:
-  - name: sinatra-dream-space-db
+  - name: sinatra-dream-space
     databaseName: sinatra-dream-space
     user: sinatra-dream-space
     plan: starter
