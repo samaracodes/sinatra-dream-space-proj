@@ -15,14 +15,16 @@ gem 'tux'
 gem 'sinatra-flash'
 gem 'rails'
 gem 'psych', '< 4'
-gem 'sqlite3'
 gem 'rspec-rails'
 gem 'sidekiq'
+
+group :development do 
+  gem 'sqlite3'
+end
 
 group :production do 
   gem 'pg'
 end
-
 
 group :test do
   gem 'rspec'
