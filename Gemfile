@@ -19,6 +19,10 @@ gem 'sqlite3'
 gem 'rspec-rails'
 gem 'sidekiq'
 
+group :production do 
+  gem 'pg'
+end
+
 
 group :test do
   gem 'rspec'
